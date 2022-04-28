@@ -1,0 +1,11 @@
+#home-page {
+  background-image: linear-gradient(
+      rgba(32, 129, 129, 0.199),
+      rgba(59, 11, 150, 0.404)
+    ),
+    url("../../assets/imagens/homepage.jpg");
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

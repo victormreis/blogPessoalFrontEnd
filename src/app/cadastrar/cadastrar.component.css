@@ -1,0 +1,11 @@
+#img-cadastro {
+  min-height: 100vh;
+  background-image: linear-gradient(
+      rgba(46, 140, 202, 0.274),
+      rgba(0, 0, 0, 0.623)
+    ),
+    url("../../assets/imagens/login.jpg");
+  background-position: 75%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
