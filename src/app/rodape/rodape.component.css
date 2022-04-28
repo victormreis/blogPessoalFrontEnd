@@ -1,12 +1,11 @@
-a{
+a {
   text-decoration: none;
   cursor: pointer;
 }
 
-ul.redes-sociais{
+ul.redes-sociais {
   list-style: none;
   padding: 0;
-
 }
 
 ul.redes-sociais li {
@@ -24,10 +23,10 @@ ul.redes-sociais li {
   color: #0a66c2;
 }
 
-.fa-github:hover{
-  color: #24292F;
+.fa-github:hover {
+  color: #24292f;
 }
 
-.fa-instagram:hover{
-  color: 	#d62976;
+.fa-instagram:hover {
+  color: #d62976;
 }
