@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-inicio">
   <button
     class="navbar-toggler"
     type="button"
@@ -15,7 +15,7 @@
     <ul class="navbar-nav mr-auto d-flex align-items-center">
       <li class="nav-item active">
         <img
-          src="https://avatars.githubusercontent.com/u/57497791?v=4"
+          src="{{ foto }}"
           alt="Foto do Usuario"
           width="50"
           height="50px"
@@ -23,13 +23,11 @@
         />
       </li>
       <li class="nav-item pl-3">
-        <p class="m-0 font-weight-bold text-white fs-16">
-          Olá Victor seja bem vindo
-        </p>
+        <p class="m-0 font-weight-bold text-dark fs-16">Olá, {{ nome }}</p>
       </li>
       <li class="nav-item pl-3">
         <a href="">
-          <p class="text-white fs-16 m-0">
+          <p class="text-dark fs-16 m-0">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </p>
         </a>
@@ -37,8 +35,9 @@
     </ul>
     <ul class="navbar-nav ml-auto d-flex align-items-center">
       <li class="nav-item pl-3">
-        <a class="m-0 font-weight-bold text-white fs-16" href=""
-          >Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+        <a (click)="sair()" class="m-0 font-weight-bold text-dark fs-16">
+          Sair
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
         </a>
       </li>
     </ul>

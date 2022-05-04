@@ -46,6 +46,9 @@ export class CadastrarComponent implements OnInit {
           if(erro.status == 400) {
             alert('Email já cadastrado!');
           }
+          if(erro.status ==500){
+            alert('O formulario não pode ter campos vazios')
+          }
         },
       })
   }

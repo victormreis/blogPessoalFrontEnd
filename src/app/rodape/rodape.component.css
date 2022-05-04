@@ -1,6 +1,18 @@
+.bg-menu{
+  background-color: #263238;
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
+  color: white;
+}
+
+span a:hover{
+  color: rgba(76, 76, 141, 0.651);
+  background-color: #a0a2a3;
+  border-radius: 4px;
+
 }
 
 ul.redes-sociais {
