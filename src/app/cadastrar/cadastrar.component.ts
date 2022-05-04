@@ -36,10 +36,20 @@ export class CadastrarComponent implements OnInit {
     if (this.usuario.senha != this.confirmarSenha) {
       alert('As senhas não conferem')
     } else {
-      this.auth.cadastrar(this.usuario).subscribe((resp: Usuario) =>{
+      this.auth.cadastrar(this.usuario).subscribe({
+        next: (resp: Usuario) =>{
         this.usuario = resp
-        this.router.navigate(['/entrar'])
         alert('Usuario Cadastrado com sucesso!')
+        this.router.navigate(['/entrar']);
+        },
+        error: (erro) => {
+          if(erro.status == 400) {
+            alert('Email já cadastrado!');
+          }
+          if(erro.status ==500){
+            alert('O formulario não pode ter campos vazios')
+          }
+        },
       })
   }
 }
