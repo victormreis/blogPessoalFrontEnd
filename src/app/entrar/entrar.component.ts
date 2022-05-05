@@ -36,4 +36,17 @@ export class EntrarComponent implements OnInit {
       },
     });
   }
+
+  validaEmail(){
+    let email = (<HTMLLabelElement>document.querySelector('#txtUsuario'))
+    let regex = "[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
+    if(this.usuarioLogin.usuario.match(regex)){
+      email.innerHTML = 'Usuário'
+      email.style.color = 'black'
+    }else{
+      email.innerHTML = 'Usuário precisa ser um email válido'
+      email.style.color = 'red'
+    }
+
+  }
 }
