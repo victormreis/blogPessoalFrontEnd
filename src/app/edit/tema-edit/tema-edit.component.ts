@@ -42,7 +42,7 @@ export class TemaEditComponent implements OnInit {
       this.router.navigate(['/temas'])
       },
       error: (erro) => {
-        if(erro.status == 400){
+        if(erro.status == 409){
           alert('Não é possivel atualziar o tema pois a descrição já existe!')
         }
       },

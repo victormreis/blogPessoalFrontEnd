@@ -11,8 +11,12 @@ import { TemaService } from '../service/tema.service';
 })
 export class TemasComponent implements OnInit {
 
-  tema: Tema = new Tema()
-  listaTema: Tema[]
+  tema: Tema = new Tema();
+  listaTema: Tema[];
+
+
+
+
 
   constructor(
     private router: Router,
@@ -30,10 +34,11 @@ export class TemasComponent implements OnInit {
 
   }
 
+
+
   findAllTemas(){
     this.temaService.getAllTemas().subscribe((resp:Tema[]) =>{
       this.listaTema = resp
-      console.log(this.listaTema)
     })
   }
 
@@ -44,6 +49,8 @@ export class TemasComponent implements OnInit {
       alert('Tema cadastrado com sucesso!')
       this.tema = new Tema()
       this.findAllTemas()
+
+
       },
       error: (erro) => {
         if(erro.status == 400){
