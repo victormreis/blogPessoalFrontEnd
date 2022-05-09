@@ -61,14 +61,6 @@ export class TemasComponent implements OnInit {
 
   }
 
-  ativarCadastrar(){
-    let btnCadastrar = (<HTMLButtonElement>document.querySelector('#btn-cadastrar-tema'))
-    if(this.tema.descricao.length < 2){
-      btnCadastrar.disabled = true
-    }else{
-      btnCadastrar.disabled=false
-    }
-  }
 
 }
 
