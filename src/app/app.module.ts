@@ -12,6 +12,8 @@ import { EntrarComponent } from './entrar/entrar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { TemasComponent } from './temas/temas.component';
+import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
+import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { TemasComponent } from './temas/temas.component';
     CadastrarComponent,
     InicioComponent,
     TemasComponent,
+    TemaEditComponent,
+    TemaDeleteComponent,
 
   ],
   imports: [
