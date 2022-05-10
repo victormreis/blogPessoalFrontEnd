@@ -5,25 +5,49 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostagensService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   token = {
-    headers: new HttpHeaders().set('Authorization', environment.token)
+    headers: new HttpHeaders().set('Authorization', environment.token),
+  };
+
+  getAllPostagens(): Observable<Postagem[]> {
+    return this.http.get<Postagem[]>(
+      'https://blogpessoalspring.herokuapp.com/postagens',
+      this.token
+    );
   }
 
-  getAllPostagens():Observable<Postagem[]>{
-    return this.http.get<Postagem[]>('https://blogpessoalspring.herokuapp.com/postagens',this.token)
+  getByIdPostagem(id: number): Observable<Postagem> {
+    return this.http.get<Postagem>(
+      `https://blogpessoalspring.herokuapp.com/postagens/${id}`,
+      this.token
+    );
   }
 
-  postPostagem(postagem: Postagem): Observable<Postagem>{
-    return this.http.post<Postagem>('https://blogpessoalspring.herokuapp.com/postagens', postagem,this.token)
+  postPostagem(postagem: Postagem): Observable<Postagem> {
+    return this.http.post<Postagem>(
+      'https://blogpessoalspring.herokuapp.com/postagens',
+      postagem,
+      this.token
+    );
   }
 
+  putPostagem(postagem: Postagem): Observable<Postagem> {
+    return this.http.put<Postagem>(
+      'https://blogpessoalspring.herokuapp.com/postagens',
+      postagem,
+      this.token
+    );
+  }
 
-
-
+  deletePostagem(id: number) {
+    return this.http.delete(
+      `https://blogpessoalspring.herokuapp.com/postagens/${id}`,
+      this.token
+    );
+  }
 }

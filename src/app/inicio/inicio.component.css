@@ -3,3 +3,9 @@
 #texto{
   height: 100px;
 }
+
+.card-postagem{
+  border: solid 1px black;
+  min-height: 30.051vh;
+
+}
