@@ -13,3 +13,10 @@
 .fs-18{
   font-size: 18pt;
 }
+
+.fs-titulo {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: 'Times New Roman', Times, serif;
+}
+
