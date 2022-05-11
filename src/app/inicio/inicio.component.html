@@ -40,9 +40,8 @@
         aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
         Postagens</a>
 
-      <a class="nav-link text-decoration-none text-dark font-weight-bold" id="nav-postagensTema-tab" data-toggle="tab"
-        href="#nav-postagensTema" role="tab" aria-controls="nav-postagensTema" aria-selected="false">Postagens por
-        Tema</a>
+      <a (click)="findByIdTema()" class="nav-link text-decoration-none text-dark font-weight-bold" id="nav-postagensTema-tab" data-toggle="tab"
+        href="#nav-postagensTema" role="tab" aria-controls="nav-postagensTema" aria-selected="false">Postagens por Tema</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
@@ -81,23 +80,30 @@
               {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
             </small></p>
 
-          <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-          <a [routerLink]="['/postagem-delete',item.id]" class="text-danger" href="">Deletar</a>
+          <a [routerLink]="['/postagem-edit', item.id]" class="mr-3 btn btn-info" href="">Editar</a>
+          <a [routerLink]="['/postagem-delete',item.id]" class="btn btn-danger" href="">Deletar</a>
         </div>
       </div>
     </div>
 
-    <div class="tab-pane fade" id="nav-postagensTema" role="tabpanel" aria-labelledby="nav-postagensTema-tab"
-      *ngFor="let tema of listaTemas">
-      <div class="card mb-4 mt-5 bg-light" *ngFor="let item of tema.postagem">
-        <div class="card-body">
-          <h5 class="card-title mb-0">{{item.titulo}}</h5>
-          <!-- <p class="card-text mt-0 mb-3 p-0"><small class="text-muted">{{item.tema.descricao}}</small></p> -->
-          <p class="card-text">{{item.texto}}</p>
-          <p class="card-text m-0 p-0 text-right"><small class="text-muted">
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
-            </small></p>
-          <p class="card-text m-0 p-0 text-right"><small class="text-muted">By: {{item.usuario.nome}}</small></p>
+    <div class="tab-pane fade" id="nav-postagensTema" role="tabpanel" aria-labelledby="nav-postagensTema-tab">
+
+      <div *ngFor="let tema of listaTemas" >
+        <div class="card mb-4 mt-5 bg-light" *ngFor="let item of tema.postagem"  >
+          <div class="card-body">
+            <h2 class="card-title mb-0 text-center fs-titulo">{{item.titulo}}</h2>
+            <p class="card-text mb-3">{{item.texto}}</p>
+            <div class="d-flex flex-column align-items-end mt-3">
+              <p class="card-text m-0 p-0 text-right"><small class="text-muted">By: {{item.usuario.nome}}</small></p>
+              <img class="rounded-circle
+              " [src]="item.usuario.foto"
+                onerror="this.src = 'https://images.tcdn.com.br/files/464197/themes/125/img/usuario.svg?5c093ec8faadae97bc036806130f8fc4'"
+                alt="Foto do usuario" width="35px" height="35px">
+              <p class="card-text m-0 p-0 text-right"><small class="text-muted">
+                  {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                </small></p>
+            </div>
+          </div>
         </div>
       </div>
 

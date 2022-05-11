@@ -86,7 +86,7 @@ export class InicioComponent implements OnInit {
       alert('Postagem realizada com Sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
-      this.findByIdUsuario()
+
       },
       error: (erro) => {
         if(erro.status == 500) {
