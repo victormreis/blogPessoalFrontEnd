@@ -18,8 +18,8 @@
           [src]="foto"
           onerror="this.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTonzitYe7kb9fz9q1ghupvjYeUMWgJ8i3fqA&usqp=CAU'"
           alt="Foto do Usuario"
-          width="50px"
-          height="50px"
+          width="45px"
+          height="45px"
           class="rounded-circle img-fluid"
         />
       </li>
@@ -27,7 +27,7 @@
         <p class="m-0 font-weight-bold text-dark fs-16">Olá, {{ nome }}</p>
       </li>
       <li class="nav-item pl-3">
-        <a href="">
+        <a [routerLink]="['/usuario-edit', id]">
           <p class="text-dark fs-16 m-0">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </p>

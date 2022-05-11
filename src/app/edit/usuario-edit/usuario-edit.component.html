@@ -1,0 +1,60 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Editar meu usuário</h1>
+    </div>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label for="nome" id="txtNome">Nome</label>
+      <input [(ngModel)]="usuario.nome" (input)="validaNome()" class="form-control" type="text" name="nome" id="nome"
+        placeholder="Digite seu nome" />
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="usuario" id="txtEmail">Usuário</label>
+      <input [(ngModel)]="usuario.usuario" (input)="validaEmail()" class="form-control" type="text"
+        name="usuario" id="usuario" placeholder="Seu E-mail" />
+    </div> -->
+
+    <div class="form-group">
+      <label for="foto">Foto</label>
+      <input [(ngModel)]="usuario.foto" class="form-control" type="text" name="foto" id="foto"
+        placeholder="Link da sua foto" />
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input (input)="confirmSenha($event)" class="form-control" type="password" name="senha" id="senha"
+        placeholder="Senha" />
+    </div>
+
+    <div class="form-group">
+      <label for="senha" id="txtSenha">Confirme sua senha</label>
+      <input [(ngModel)]="usuario.senha" (input)="validaSenha()" class="form-control" type="password"
+        name="confirmarSenha" id="confirmarSenha" placeholder="Confirme sua senha" />
+    </div>
+    <div class="form-group">
+      <label for="tipo">Tipo de Usuário</label>
+      <select class="form-control" name="tipo" id="tipo" (change)="tipoUsuario($event)">
+        <option value="">Selecione um tipo de usuário</option>
+        <option value="normal">Normal</option>
+        <option value="adm">Administrador</option>
+      </select>
+    </div>
+
+    <div class="d-flex justify-content-center mb-4">
+      <button type="button" class="btn btn-danger mr-5" routerLink="/inicio">
+        Cancelar
+      </button>
+      <button type="submit" class="btn btn-success" [disabled]="tipoDeUsuario == null" (click)="atualizar()">
+        Atualizar
+      </button>
+    </div>
+  </form>
+
+
+
+</div>
