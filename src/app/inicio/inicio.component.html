@@ -31,15 +31,18 @@
 <div class="container mt-2" id="postagens">
   <nav class="d-flex justify-content-center">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-link active text-decoration-none text-dark font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#nav-todasPostagens" role="tab"
-        aria-controls="nav-TodasPostagens" aria-selected="true">Todas Postagens</a>
+      <a class="nav-link active text-decoration-none text-dark font-weight-bold" id="nav-todasPostagens-tab"
+        data-toggle="tab" href="#nav-todasPostagens" role="tab" aria-controls="nav-TodasPostagens"
+        aria-selected="true">Todas Postagens</a>
 
-      <a (click)='findByIdUsuario()' class="nav-link text-decoration-none text-dark font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab"
-        href="#nav-minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
+      <a (click)='findByIdUsuario()' class="nav-link text-decoration-none text-dark font-weight-bold"
+        id="nav-minhasPostagens-tab" data-toggle="tab" href="#nav-minhasPostagens" role="tab"
+        aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
         Postagens</a>
 
-      <a class="nav-link text-decoration-none text-dark font-weight-bold" id="nav-postagensTema-tab" data-toggle="tab" href="#nav-postagensTema" role="tab"
-        aria-controls="nav-postagensTema" aria-selected="false">Postagens por Tema</a>
+      <a class="nav-link text-decoration-none text-dark font-weight-bold" id="nav-postagensTema-tab" data-toggle="tab"
+        href="#nav-postagensTema" role="tab" aria-controls="nav-postagensTema" aria-selected="false">Postagens por
+        Tema</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
@@ -54,14 +57,10 @@
           <p class="card-text">{{item.texto}}</p>
           <div class="d-flex flex-column align-items-end">
             <p class="card-text m-0 p-0 text-right"><small class="text-muted">By: {{item.usuario.nome}}</small></p>
-            <img
-            class="rounded-circle
-            "
-            [src]="item.usuario.foto"
-            onerror="this.src = 'https://images.tcdn.com.br/files/464197/themes/125/img/usuario.svg?5c093ec8faadae97bc036806130f8fc4'"
-            alt="Foto do usuario"
-            width="35px"
-            height="35px">
+            <img class="rounded-circle
+            " [src]="item.usuario.foto"
+              onerror="this.src = 'https://images.tcdn.com.br/files/464197/themes/125/img/usuario.svg?5c093ec8faadae97bc036806130f8fc4'"
+              alt="Foto do usuario" width="35px" height="35px">
             <p class="card-text m-0 p-0 text-right"><small class="text-muted">
                 {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
               </small></p>
@@ -82,8 +81,8 @@
               {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
             </small></p>
 
-            <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-            <a [routerLink]="['/postagem-delete',item.id]" class="text-danger" href="">Deletar</a>
+          <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
+          <a [routerLink]="['/postagem-delete',item.id]" class="text-danger" href="">Deletar</a>
         </div>
       </div>
     </div>
