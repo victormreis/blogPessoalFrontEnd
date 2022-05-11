@@ -15,6 +15,7 @@ export class UsuarioEditComponent implements OnInit {
   idUsuario: number
   confirmarSenha: string;
   tipoDeUsuario: string;
+  id = environment.id;
 
   constructor(
     private auth: AuthService,

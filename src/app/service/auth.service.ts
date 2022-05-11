@@ -46,6 +46,10 @@ export class AuthService {
     return this.http.put<Usuario>('https://blogpessoalspring.herokuapp.com/usuarios/atualizar',usuario,this.token)
   }
 
+  deletarUsuario(id: number){
+    return this.http.delete(`https://blogpessoalspring.herokuapp.com/usuarios/${id}`,this.token)
+  }
+
 
 
 }

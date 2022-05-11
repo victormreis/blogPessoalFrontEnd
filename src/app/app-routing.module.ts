@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
+import { UsuarioDeleteComponent } from './delete/usuario-delete/usuario-delete.component';
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'postagem-edit/:id', component: PostagemEditComponent },
   { path: 'postagem-delete/:id', component: PostagemDeleteComponent },
   { path: 'usuario-edit/:id', component: UsuarioEditComponent },
+  { path: 'usuario-delete/:id', component: UsuarioDeleteComponent },
 ];
 
 @NgModule({
