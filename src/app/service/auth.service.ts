@@ -42,6 +42,10 @@ export class AuthService {
     return ok
   }
 
+  atualizar(usuario: Usuario):Observable<Usuario>{
+    return this.http.put<Usuario>('https://blogpessoalspring.herokuapp.com/usuarios/atualizar',usuario,this.token)
+  }
+
 
 
 }

@@ -37,7 +37,9 @@ export class InicioComponent implements OnInit {
     private authService: AuthService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+
+    window.scroll(0,0)
 
     if(environment.token ==''){
       alert('Sessão expirada, faça login para continuar')
@@ -46,6 +48,7 @@ export class InicioComponent implements OnInit {
     this.authService.refreshToken();
     this.getAllTemas()
     this.getAllPostagens()
+    
 
   }
 
