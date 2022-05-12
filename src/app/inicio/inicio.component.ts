@@ -48,7 +48,7 @@ export class InicioComponent implements OnInit {
     this.authService.refreshToken();
     this.getAllTemas()
     this.getAllPostagens()
-    
+
 
   }
 
@@ -89,6 +89,7 @@ export class InicioComponent implements OnInit {
       alert('Postagem realizada com Sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
+      this.getAllTemas()
 
       },
       error: (erro) => {
