@@ -84,6 +84,7 @@ export class UsuarioEditComponent implements OnInit {
     } else {
       this.auth.atualizar(this.usuario).subscribe({
         next: (resp: Usuario) => {
+          console.log(this.usuario)
           this.usuario = resp;
           alert('Usuario Atualizado com sucesso! Por favor faça o login para validar as alterações');
           this.router.navigate(['/entrar']);
