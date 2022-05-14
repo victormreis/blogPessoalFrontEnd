@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagensService } from '../service/postagens.service';
 import { TemaService } from '../service/tema.service';
@@ -25,8 +26,10 @@ export class InicioComponent implements OnInit {
 
   usuario: Usuario = new Usuario
   idUsuario = environment.id
-
   foto= environment.foto
+
+  key = 'date'
+  reverse = true
 
 
 
@@ -34,7 +37,8 @@ export class InicioComponent implements OnInit {
     private router: Router,
     private postagensService: PostagensService,
     private temaService: TemaService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit(){
@@ -42,7 +46,7 @@ export class InicioComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token ==''){
-      alert('Sessão expirada, faça login para continuar')
+      this.alertas.showAlertDanger('Sessão expirada, faça login para continuar')
       this.router.navigate(['/entrar'])
     }
     this.authService.refreshToken();
@@ -86,7 +90,7 @@ export class InicioComponent implements OnInit {
     this.postagensService.postPostagem(this.postagem).subscribe({
       next:(resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem realizada com Sucesso!')
+      this.alertas.showAlertSuccess('Postagem realizada com Sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
       this.getAllTemas()
@@ -94,7 +98,7 @@ export class InicioComponent implements OnInit {
       },
       error: (erro) => {
         if(erro.status == 500) {
-          alert('Preencha todos os campos para fazer uma postagem!')
+          this.alertas.showAlertInfo('Preencha todos os campos para fazer uma postagem!')
         }
       },
     })
