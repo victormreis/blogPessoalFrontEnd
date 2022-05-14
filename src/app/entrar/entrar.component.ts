@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { UsuarioLogin } from '../model/UsuarioLogin';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -12,7 +13,10 @@ import { AuthService } from '../service/auth.service';
 export class EntrarComponent implements OnInit {
   usuarioLogin: UsuarioLogin = new UsuarioLogin();
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService,
+    private router: Router,
+    private alertas: AlertasService,
+    ) {}
 
   ngOnInit() {
     window.scroll(0,0)
@@ -31,7 +35,7 @@ export class EntrarComponent implements OnInit {
       },
       error: (erro) => {
         if (erro.status == 401) {
-          alert('Usuário ou senha estão incorretos!');
+          this.alertas.showAlertDanger('Usuário ou senha estão incorretos!');
         }
       },
     });

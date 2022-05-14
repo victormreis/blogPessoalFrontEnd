@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -18,6 +20,7 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 import { UsuarioDeleteComponent } from './delete/usuario-delete/usuario-delete.component';
+import { AlertasComponent } from './alertas/alertas.component';
 
 
 @NgModule({
@@ -35,13 +38,16 @@ import { UsuarioDeleteComponent } from './delete/usuario-delete/usuario-delete.c
     PostagemDeleteComponent,
     UsuarioEditComponent,
     UsuarioDeleteComponent,
+    AlertasComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot(),
+    OrderModule
 
   ],
   providers: [{
