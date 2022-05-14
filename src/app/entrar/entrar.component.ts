@@ -11,6 +11,8 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./entrar.component.css'],
 })
 export class EntrarComponent implements OnInit {
+  // btnEntrar = <HTMLButtonElement>document.querySelector('#btnEntrar')
+  isLoading = false
   usuarioLogin: UsuarioLogin = new UsuarioLogin();
 
   constructor(private auth: AuthService,
@@ -23,6 +25,7 @@ export class EntrarComponent implements OnInit {
   }
 
   entrar() {
+    this.isLoading = true
     this.auth.entrar(this.usuarioLogin).subscribe({
       next: (resp: UsuarioLogin) => {
         this.usuarioLogin = resp;
@@ -32,14 +35,20 @@ export class EntrarComponent implements OnInit {
         environment.token = this.usuarioLogin.token;
         this.router.navigate(['/inicio']);
 
+
       },
       error: (erro) => {
         if (erro.status == 401) {
           this.alertas.showAlertDanger('Usuário ou senha estão incorretos!');
+          this.isLoading = false
         }
       },
     });
   }
+
+  // alterBtn(){
+  //   this.btnEntrar.textContent =' teste'
+  // }
 
   validaEmail(){
     let email = (<HTMLLabelElement>document.querySelector('#txtUsuario'))
