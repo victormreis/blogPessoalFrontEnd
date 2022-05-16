@@ -48,6 +48,11 @@ export class EntrarComponent implements OnInit {
           this.isLoading = false
           this.alterTxtBtn()
         }
+        if(erro.status == 500){
+          this.alertas.showAlertDanger('Preencha todos os campos para fazer o login');
+          this.isLoading = false
+          this.alterTxtBtn()
+        }
       },
     });
   }
