@@ -61,7 +61,7 @@
         <div class="card-body">
           <h2 class="card-title mb-0 text-center fs-titulo">{{item.titulo}}</h2>
           <p class="card-text text-center mt-0 mb-3 p-0"><small class="text-muted">{{item.tema.descricao}}</small></p>
-          <p class="card-text">{{item.texto}}</p>
+          <pre class="card-text ff">{{item.texto}}</pre>
           <div class="d-flex flex-column align-items-end">
             <p class="card-text m-0 p-0 text-right"><small class="text-muted">By: {{item.usuario.nome}}</small></p>
             <img class="rounded-circle
@@ -83,7 +83,7 @@
         <div class="card-body">
           <h5 class="card-title mb-0">{{item.titulo}}</h5>
           <p class="card-text mt-0 mb-3 p-0"><small class="text-muted">{{item.tema.descricao}}</small></p>
-          <p class="card-text">{{item.texto}}</p>
+          <pre class="card-text ff">{{item.texto}}</pre>
           <p class="card-text m-0 p-0 text-right"><small class="text-muted">
               {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
             </small></p>
@@ -111,7 +111,7 @@
         <div class="card mb-4 mt-5 bg-light" *ngFor="let item of tema.postagem | orderBy: key : reverse"  >
           <div class="card-body">
             <h2 class="card-title mb-0 text-center fs-titulo">{{item.titulo}}</h2>
-            <p class="card-text mb-3">{{item.texto}}</p>
+            <pre class="card-text mb-3 ff">{{item.texto}}</pre>
             <div class="d-flex flex-column align-items-end mt-3">
               <p class="card-text m-0 p-0 text-right"><small class="text-muted">By: {{item.usuario.nome}}</small></p>
               <img class="rounded-circle
