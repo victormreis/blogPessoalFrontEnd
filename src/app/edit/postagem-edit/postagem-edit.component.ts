@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment.prod';
 export class PostagemEditComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
-  tema: Tema = new Tema
+  tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
 
@@ -61,11 +61,21 @@ export class PostagemEditComponent implements OnInit {
   atualizar(){
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
+    // this.postagem.tema.postagem = []
+    // this.postagem.usuario.postagens = []
+    console.log(this.postagem)
 
-    this.postagensService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
+    this.postagensService.putPostagem(this.postagem).subscribe({
+      next:(resp: Postagem) => {
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem Atualizada com sucesso!')
       this.router.navigate(['/inicio'])
+      },
+      error: (erro) => {
+        if(erro.status == 400){
+          this.alertas.showAlertDanger('Preencha todos os campos para atualizar uma postagem')
+        }
+      }
     })
   }
 
