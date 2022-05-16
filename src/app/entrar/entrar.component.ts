@@ -57,7 +57,7 @@ export class EntrarComponent implements OnInit {
       this.txtBtn = 'Entrar'
     }
     else{
-      this.txtBtn = 'Carreegando'
+      this.txtBtn = 'Carregando'
     }
   }
 
