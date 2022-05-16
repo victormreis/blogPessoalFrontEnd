@@ -21,7 +21,10 @@ export class TemaService {
 
   getByIdTema (id: number):Observable<Tema>{
     return this.http.get<Tema>(`https://blogpessoalspring.herokuapp.com/temas/${id}`,this.token)
+  }
 
+  getByNome(descricao: string):Observable<Tema[]>{
+    return this.http.get<Tema[]>(`https://blogpessoalspring.herokuapp.com/temas/nome/${descricao}`,this.token)
   }
 
   postTema(tema: Tema):Observable<Tema>{
