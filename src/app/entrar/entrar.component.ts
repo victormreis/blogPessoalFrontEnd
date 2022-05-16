@@ -14,6 +14,7 @@ export class EntrarComponent implements OnInit {
   // btnEntrar = <HTMLButtonElement>document.querySelector('#btnEntrar')
   isLoading = false
   usuarioLogin: UsuarioLogin = new UsuarioLogin();
+  txtBtn: string
 
   constructor(private auth: AuthService,
     private router: Router,
@@ -22,10 +23,13 @@ export class EntrarComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
+    this.alterTxtBtn()
+
   }
 
   entrar() {
     this.isLoading = true
+    this.alterTxtBtn()
     this.auth.entrar(this.usuarioLogin).subscribe({
       next: (resp: UsuarioLogin) => {
         this.usuarioLogin = resp;
@@ -42,14 +46,20 @@ export class EntrarComponent implements OnInit {
         if (erro.status == 401) {
           this.alertas.showAlertDanger('Usuário ou senha estão incorretos!');
           this.isLoading = false
+          this.alterTxtBtn()
         }
       },
     });
   }
 
-  // alterBtn(){
-  //   this.btnEntrar.textContent =' teste'
-  // }
+  alterTxtBtn(){
+    if(this.isLoading == false){
+      this.txtBtn = 'Entrar'
+    }
+    else{
+      this.txtBtn = 'Carreegando'
+    }
+  }
 
   validaEmail(){
     let email = (<HTMLLabelElement>document.querySelector('#txtUsuario'))
@@ -63,4 +73,6 @@ export class EntrarComponent implements OnInit {
     }
 
   }
+
+
 }

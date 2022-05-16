@@ -50,8 +50,11 @@
               <button type="submit" class="btn btn-danger mr-5" routerLink="/entrar">
                 Cancelar
               </button>
-              <button type="submit" class="btn btn-success" (click)="cadastrar()">
-                Cadastrar
+              <button type="submit" class="btn btn-success" [disabled]="isLoading == true" (click)="cadastrar()">
+                {{txtBtn}}
+                <ng-container *ngIf="isLoading == true">
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                </ng-container>
               </button>
             </div>
           </form>

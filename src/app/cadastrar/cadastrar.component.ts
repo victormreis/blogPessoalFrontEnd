@@ -12,11 +12,14 @@ export class CadastrarComponent implements OnInit {
   usuario: Usuario = new Usuario();
   confirmarSenha: string;
   tipoDeUsuario: string;
+  txtBtn: string;
+  isLoading = false
 
   constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit() {
     window.scroll(0, 0);
+    this.alterTxtBtn()
   }
 
   confirmSenha(event: any) {
@@ -32,6 +35,8 @@ export class CadastrarComponent implements OnInit {
     if (this.usuario.senha != this.confirmarSenha) {
       alert('As senhas não conferem');
     } else {
+      this.isLoading = true
+      this.alterTxtBtn()
       this.auth.cadastrar(this.usuario).subscribe({
         next: (resp: Usuario) => {
           this.usuario = resp;
@@ -45,6 +50,8 @@ export class CadastrarComponent implements OnInit {
           if (erro.status == 500) {
             alert('O formulario não pode ter campos vazios');
           }
+          this.isLoading = false
+          this.alterTxtBtn()
         },
       });
     }
@@ -92,5 +99,17 @@ export class CadastrarComponent implements OnInit {
       senha.style.border = 'solid 1px red';
       confSenha.style.border = 'solid 1px red';
     }
+
   }
+
+  alterTxtBtn(){
+    if(this.isLoading == false){
+      this.txtBtn = 'Entrar'
+    }
+    else{
+      this.txtBtn = 'Carreegando'
+    }
+  }
+
+
 }

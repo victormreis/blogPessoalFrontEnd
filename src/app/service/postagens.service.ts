@@ -29,10 +29,12 @@ export class PostagensService {
     );
   }
 
-  getByTitulo(titulo : string):Observable<Postagem[]>{
-    return this.http.get<Postagem[]>(`https://blogpessoalspring.herokuapp.com/postagens/titulo/${titulo}`,this.token)
+  getByTitulo(titulo: string): Observable<Postagem[]> {
+    return this.http.get<Postagem[]>(
+      `https://blogpessoalspring.herokuapp.com/postagens/titulo/${titulo}`,
+      this.token
+    );
   }
-
 
   postPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.post<Postagem>(
